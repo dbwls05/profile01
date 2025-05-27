@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from 'react';
+//import { useState, useEffect } from 'react';
 import './App.css';
 import { FiGithub, FiMail, FiInstagram, FiLinkedin } from 'react-icons/fi';
 import { SiNotion } from 'react-icons/si';
