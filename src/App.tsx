@@ -1,10 +1,8 @@
-//import { useState, useEffect } from 'react';
+import { useState, useEffect } from 'react';
 import './App.css';
 import { FiGithub, FiMail, FiInstagram, FiLinkedin } from 'react-icons/fi';
 import { SiNotion } from 'react-icons/si';
 import myProfileImg from './assets/profile-placeholder2.jpg'; // 파일명에 맞게 수정
-// ...existing code...
-
 
 interface ProfileData {
   name: string;
@@ -40,8 +38,9 @@ const userProfile: ProfileData = {
   mbti: 'ISTP',
   personalityKeywords: ['조용하지만 몰입력 높은 타입', '분석적 사고', '효율성 중시'],
   likes: ['휴식', '음악 감상', '웹툰 보기', '새로운 기술 탐구'],
-  avatarUrl: myProfileImg, // 프로필 이미지 URL
+  avatarUrl: myProfileImg,
 };
+
 function App() {
   const [profileData, setProfileData] = useState<ProfileData | null>(null);
 
@@ -58,7 +57,9 @@ function App() {
   }
 
   const {
-    name, school, oneLiner, email, github, notion, instagram, linkedIn, interests, skills, strengths, growthKeywords, mbti, personalityKeywords, likes, avatarUrl,
+    name, school, oneLiner, email, github, notion, instagram, linkedIn,
+    interests, skills, strengths, growthKeywords, mbti,
+    personalityKeywords, likes, avatarUrl,
   } = profileData;
 
   return (
@@ -75,22 +76,12 @@ function App() {
           <p className="profile-school">{school}</p>
           <p className="one-liner-text">{oneLiner}</p>
           <div className="social-links">
-            <a href={`mailto:${email}`} target="_blank" rel="noopener noreferrer" aria-label="Email" className="social-icon">
-              <FiMail />
-            </a>
-            <a href={github} target="_blank" rel="noopener noreferrer" aria-label="GitHub" className="social-icon">
-              <FiGithub />
-            </a>
-            <a href={notion} target="_blank" rel="noopener noreferrer" aria-label="Notion" className="social-icon">
-              <SiNotion />
-            </a>
-            <a href={instagram} target="_blank" rel="noopener noreferrer" aria-label="Instagram" className="social-icon">
-              <FiInstagram />
-            </a>
+            <a href={`mailto:${email}`} target="_blank" rel="noopener noreferrer" aria-label="Email" className="social-icon"><FiMail /></a>
+            <a href={github} target="_blank" rel="noopener noreferrer" aria-label="GitHub" className="social-icon"><FiGithub /></a>
+            <a href={notion} target="_blank" rel="noopener noreferrer" aria-label="Notion" className="social-icon"><SiNotion /></a>
+            <a href={instagram} target="_blank" rel="noopener noreferrer" aria-label="Instagram" className="social-icon"><FiInstagram /></a>
             {linkedIn && (
-              <a href={linkedIn} target="_blank" rel="noopener noreferrer" aria-label="LinkedIn" className="social-icon">
-                <FiLinkedin />
-              </a>
+              <a href={linkedIn} target="_blank" rel="noopener noreferrer" aria-label="LinkedIn" className="social-icon"><FiLinkedin /></a>
             )}
           </div>
         </header>
@@ -99,27 +90,16 @@ function App() {
           <section className="section">
             <h2 className="section-title">기본 정보</h2>
             <div className="info-grid">
-              <div className="info-item">
-                <span className="info-label">이름</span>
-                <span className="info-value">{name}</span>
-              </div>
-              <div className="info-item">
-                <span className="info-label">학교</span>
-                <span className="info-value">{school}</span>
-              </div>
-              <div className="info-item">
-                <span className="info-label">이메일</span>
-                <span className="info-value">
-                  <a href={`mailto:${email}`}>{email}</a>
-                </span>
-              </div>
+              <div className="info-item"><span className="info-label">이름</span><span className="info-value">{name}</span></div>
+              <div className="info-item"><span className="info-label">학교</span><span className="info-value">{school}</span></div>
+              <div className="info-item"><span className="info-label">이메일</span><span className="info-value"><a href={`mailto:${email}`}>{email}</a></span></div>
             </div>
           </section>
 
           <section className="section">
             <h2 className="section-title">관심분야</h2>
             <div className="tag-list">
-              {interests.map((interest, idx) => (
+              {interests.map((interest: string, idx: number) => (
                 <span key={idx} className="tag tag-interest">{interest}</span>
               ))}
             </div>
@@ -128,7 +108,7 @@ function App() {
           <section className="section">
             <h2 className="section-title">사용 가능 기술</h2>
             <div className="tag-list">
-              {skills.map((skill, idx) => (
+              {skills.map((skill: string, idx: number) => (
                 <span key={idx} className="tag tag-skill">{skill}</span>
               ))}
             </div>
@@ -137,7 +117,7 @@ function App() {
           <section className="section">
             <h2 className="section-title">나의 장점</h2>
             <div className="tag-list">
-              {strengths.map((strength, idx) => (
+              {strengths.map((strength: string, idx: number) => (
                 <span key={idx} className="tag tag-strength">{strength}</span>
               ))}
             </div>
@@ -146,7 +126,7 @@ function App() {
           <section className="section">
             <h2 className="section-title">성장 키워드</h2>
             <div className="tag-list">
-              {growthKeywords.map((keyword, idx) => (
+              {growthKeywords.map((keyword: string, idx: number) => (
                 <span key={idx} className="tag tag-keyword">{keyword}</span>
               ))}
             </div>
@@ -162,7 +142,7 @@ function App() {
               <div className="info-item">
                 <span className="info-label">성향</span>
                 <div className="tag-list">
-                  {personalityKeywords.map((keyword, idx) => (
+                  {personalityKeywords.map((keyword: string, idx: number) => (
                     <span key={idx} className="tag tag-keyword">{keyword}</span>
                   ))}
                 </div>
@@ -173,7 +153,7 @@ function App() {
           <section className="section">
             <h2 className="section-title">좋아하는 것</h2>
             <div className="tag-list">
-              {likes.map((like, idx) => (
+              {likes.map((like: string, idx: number) => (
                 <span key={idx} className="tag tag-like">{like}</span>
               ))}
             </div>
@@ -185,3 +165,4 @@ function App() {
 }
 
 export default App;
+// App.tsx
