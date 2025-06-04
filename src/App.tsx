@@ -1,7 +1,7 @@
 import { useState, useEffect } from 'react';
 import './App.css';
 import { FiGithub, FiMail, FiInstagram, FiLinkedin } from 'react-icons/fi';
-import { SiNotion } from 'react-icons/si';
+import { SiVelog } from 'react-icons/si';
 import myProfileImg from './assets/profile-placeholder2.jpg'; // 파일명에 맞게 수정
 
 interface ProfileData {
@@ -10,7 +10,7 @@ interface ProfileData {
   oneLiner: string;
   email: string;
   github: string;
-  notion: string;
+  velog: string;
   instagram: string;
   linkedIn?: string;
   interests: string[];
@@ -29,7 +29,7 @@ const userProfile: ProfileData = {
   oneLiner: '끊임없이 배우고 성장하며 사용자 중심의 가치를 만드는\n 개발자입니다.',
   email: 's2570@e-mirim.hs.kr',
   github: 'https://github.com/dbwls05',
-  notion: 'https://dbwls05.notion.site/1d52f69fb1564c07baefcf5d14b8d615',
+  velog: 'https://velog.io/@dbwls05/posts',
   instagram: 'https://www.instagram.com/whdwls._/?next=%2F',
   interests: ['프론트엔드 개발', 'UI/UX 디자인', '웹 접근성'],
   skills: ['Java', 'C', 'HTML/CSS', 'JavaScript'],
@@ -57,7 +57,7 @@ function App() {
   }
 
   const {
-    name, school, oneLiner, email, github, notion, instagram, linkedIn,
+    name, school, oneLiner, email, github, velog, instagram, linkedIn,
     interests, skills, strengths, growthKeywords, mbti,
     personalityKeywords, likes, avatarUrl,
   } = profileData;
@@ -78,7 +78,7 @@ function App() {
           <div className="social-links">
             <a href={`mailto:${email}`} target="_blank" rel="noopener noreferrer" aria-label="Email" className="social-icon"><FiMail /></a>
             <a href={github} target="_blank" rel="noopener noreferrer" aria-label="GitHub" className="social-icon"><FiGithub /></a>
-            <a href={notion} target="_blank" rel="noopener noreferrer" aria-label="Notion" className="social-icon"><SiNotion /></a>
+            <a href={velog} target="_blank" rel="noopener noreferrer" aria-label="velog" className="social-icon"><SiVelog /></a>
             <a href={instagram} target="_blank" rel="noopener noreferrer" aria-label="Instagram" className="social-icon"><FiInstagram /></a>
             {linkedIn && (
               <a href={linkedIn} target="_blank" rel="noopener noreferrer" aria-label="LinkedIn" className="social-icon"><FiLinkedin /></a>

@@ -4,6 +4,9 @@
 
 body {
   @apply font-sans bg-slate-100 text-gray-800 antialiased;
+}
+
+body {
   margin: 0;
   padding: 0;
   box-sizing: border-box;
